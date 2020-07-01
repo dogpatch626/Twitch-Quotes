@@ -8,7 +8,7 @@ client.on("ready", () => {
 });
 
 client.on("message", async (message) => {
-  if (message.content === "ping ding") {
+  if (message.content === "!ply") {
     if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       //dispatcher
@@ -17,5 +17,7 @@ client.on("message", async (message) => {
     }
   }
 });
+
+dispatcher.destroy();
 
 client.login(process.env.BOT_TOKEN);
