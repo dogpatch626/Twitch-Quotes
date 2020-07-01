@@ -17,7 +17,11 @@
   },
   "homepage": "https://github.com/dogpatch626/Posture-Bot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.2",
     "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "ffmpeg": "0.0.4",
+    "node-fetch": "^2.6.0",
     "node.js": "0.0.1-security"
   }
 }
