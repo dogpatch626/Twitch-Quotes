@@ -4,6 +4,7 @@ const fetch = require("node-fetch");
 const dotenv = require("dotenv").config();
 //searching files
 const fs = require("fs");
+const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require("constants");
 const directory = "media";
 var dirBuff = Buffer.from(directory);
 var files = fs.readdirSync(directory);
@@ -67,12 +68,24 @@ client.on("message", (message) => {
 client.on("message", (message) => {
   if (message.content === "!diss") {
     connection = message.member.voice.channel.leave();
-    console.log("bot has joined channel");
+    message.channel.send("I enjoyed my stay xqcL");
+    console.log("bot has left channel");
   }
 });
 client.on("message", (message) => {
-  if (message.content === "!Yo") {
-    message.channel.send(`Yo ${message.author} :squadR:`);
+  if (message.content === "!Yo" || message.content === "!yo") {
+    message.channel.send(
+      `Yo ${message.author} https://static-cdn.jtvnw.net/emoticons/v1/1336756/1.0`
+    );
+  }
+});
+
+client.on("message", (message) => {
+  if (message.content === "!help") {
+    message.channel.send(`available commands ${files}`);
+  }
+  if (message.content === "!true" || message.content === "!True") {
+    message.channel.send("True true, yea thats pretty true. Yea thats true ");
   }
 });
 
