@@ -3,14 +3,12 @@ const client = new Discord.Client();
 const fetch = require("node-fetch");
 const dotenv = require("dotenv").config();
 //searching files
+//do more!
 const fs = require("fs");
 const { SSL_OP_NETSCAPE_REUSE_CIPHER_CHANGE_BUG } = require("constants");
 const directory = "media";
 var dirBuff = Buffer.from(directory);
 var files = fs.readdirSync(directory);
-if (files.find((element) => element === `Train1.mp3`) !== undefined) {
-  console.log("hellowtf");
-}
 //searching files
 //global variable for dispatcher
 var dispatcher = client.voice.createBroadcast();
