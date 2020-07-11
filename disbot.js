@@ -56,34 +56,56 @@ client.on("message", async (message) => {
   }
 });
 //play handler
+const exampleEmbed = new Discord.MessageEmbed()
+  .setColor("#EA0DFF")
+  .setTitle("Twitch Quotes Help")
+  .setURL("https://discord.js.org/")
+  .setAuthor("Twitch Quotes", "https://imgur.com/283n0HX.png")
+  .setDescription("Available sounds")
+  .setThumbnail("https://imgur.com/283n0HX.png")
+  .addFields(
+    { name: "XQC", value: "1 - 4", inline: true },
+    { name: "Train", value: "1-2", inline: true },
+    { name: "Has", value: "1", inline: true },
+    { name: "Ninja", value: "1", inline: true },
+    { name: "Summit", value: "1", inline: true },
+    { name: "Asmon", value: "1", inline: true },
+    { name: "Random", value: "gnomed, jebaited, lost, wtf" }
+  )
+  .setDescription("Available commands")
+  .addFields({ name: "Commands", value: "! + ply, diss, true, Yo, end, help" })
+  .setTimestamp();
+//.setFooter("Some footer text here", "https://i.imgur.com/wSTFkRM.png");
 
-client.on("message", (message) => {
-  if (message.content === "!end") {
-    dispatcher.end();
-  }
-});
+//channel.send(exampleEmbed);
 
+// random commands
 client.on("message", (message) => {
-  if (message.content === "!diss") {
-    connection = message.member.voice.channel.leave();
-    message.channel.send("I enjoyed my stay xqcL");
-    console.log("bot has left channel");
+  // if (message.content === "!help") {
+  //   message.channel.send(`available commands ${files}`);
+  // }
+  if (message.content === "!true" || message.content === "!True") {
+    message.channel.send("True true, yea thats pretty true. Yea thats true ");
   }
-});
-client.on("message", (message) => {
   if (message.content === "!Yo" || message.content === "!yo") {
     message.channel.send(
       `Yo ${message.author} https://static-cdn.jtvnw.net/emoticons/v1/1336756/1.0`
     );
   }
-});
-
-client.on("message", (message) => {
-  if (message.content === "!help") {
-    message.channel.send(`available commands ${files}`);
+  if (message.content === "!diss") {
+    connection = message.member.voice.channel.leave();
+    message.channel.send("I enjoyed my stay xqcL");
+    console.log("bot has left channel");
   }
-  if (message.content === "!true" || message.content === "!True") {
-    message.channel.send("True true, yea thats pretty true. Yea thats true ");
+  if (message.content === "!end") {
+    dispatcher.end();
+  }
+
+  if (message.content === "!test") {
+    message.channel.send("this is a test");
+  }
+  if (message.content === "!help") {
+    message.channel.send(exampleEmbed);
   }
 });
 
