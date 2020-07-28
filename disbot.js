@@ -108,5 +108,18 @@ client.on("message", (message) => {
     message.channel.send(exampleEmbed);
   }
 });
+client.on("message", async (message) => {
+  if (message.content.startsWith(pre)) {
+    const args = message.content.slice(pre.length).split(" ");
+    if (args[0] === "poke") {
+      var pokemon = args[1];
+      const response = await fetch(
+        "https://pokeapi.co/api/v2/pokemon/" + pokemon + "/"
+      );
+      var pokeData = await response.json();
+      message.channel.send(pokeData.sprites.front_default);
+    }
+  }
+});
 
 client.login(process.env.BOT_TOKEN);
