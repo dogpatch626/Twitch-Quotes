@@ -116,8 +116,60 @@ client.on("message", async (message) => {
       const response = await fetch(
         "https://pokeapi.co/api/v2/pokemon/" + pokemon + "/"
       );
-      var pokeData = await response.json();
-      message.channel.send(pokeData.sprites.front_default);
+      if (response.ok) {
+        var pokeData = await response.json();
+        const pokeEmbed = new Discord.MessageEmbed()
+          .setColor("#EA0DFF")
+          .setTitle(pokemon)
+          .setURL(pokeData.sprites.front_default)
+          .setAuthor("Pokedex", pokeData.sprites.front_default)
+          .setDescription("Available sounds")
+          .setThumbnail(pokeData.sprites.front_default)
+          .addFields(
+            {
+              name: pokeData.stats[0].stat.name,
+              value: pokeData.stats[0].base_stat,
+              inline: true,
+            },
+            {
+              name: pokeData.stats[1].stat.name,
+              value: pokeData.stats[1].base_stat,
+              inline: true,
+            },
+            {
+              name: pokeData.stats[2].stat.name,
+              value: pokeData.stats[2].base_stat,
+              inline: true,
+            },
+            {
+              name: pokeData.stats[3].stat.name,
+              value: pokeData.stats[3].base_stat,
+              inline: true,
+            },
+            {
+              name: pokeData.stats[4].stat.name,
+              value: pokeData.stats[4].base_stat,
+              inline: true,
+            },
+            {
+              name: pokeData.stats[5].stat.name,
+              value: pokeData.stats[5].base_stat,
+              inline: true,
+            }
+          )
+          .setDescription("Pokemon Stats")
+          .addFields({
+            name: "Id",
+            value: pokeData.id,
+          })
+          .setTimestamp();
+
+        message.channel.send(pokeEmbed);
+      } else {
+        message.channel.send(
+          "Professor Oak has not seen such pokemon in the wild"
+        );
+      }
     }
   }
 });
