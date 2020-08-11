@@ -70,6 +70,7 @@ const exampleEmbed = new Discord.MessageEmbed()
     { name: "Ninja", value: "1", inline: true },
     { name: "Summit", value: "1", inline: true },
     { name: "Asmon", value: "1", inline: true },
+    { name: "Botez", value: "1", inline: true },
     { name: "Random", value: "gnomed, jebaited, lost, wtf" }
   )
   .setDescription("Available commands")
