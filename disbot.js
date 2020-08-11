@@ -105,7 +105,7 @@ client.on("message", (message) => {
   if (message.content === "!test") {
     message.channel.send("this is a test");
   }
-  if (message.content === "!help") {
+  if (message.content === "!list") {
     message.channel.send(exampleEmbed);
   }
 });
